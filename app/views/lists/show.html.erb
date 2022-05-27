@@ -14,6 +14,9 @@
     </div>
   </div>
   <div class="row my-2">
+    <% @list.photos.each do |photo| %>
+     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
     <% @list.movies.each do |movie| %>
       <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
       <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
